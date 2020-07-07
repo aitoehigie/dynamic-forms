@@ -45,8 +45,9 @@ var data = [{
 	"conditional": {
 		"name": "date_of_birth",
 		"show_if": (value) => {
-      const now = new Date();
-			return value >= new Date(now.getFullYear() - 13, now.getMonth(), now.getDate());}
+	        const now = new Date();
+                var value = new Date(value);
+        	return value >= new Date(now.getFullYear() - 13, now.getMonth(), now.getDate());}
 }
 }]
 
@@ -82,7 +83,7 @@ for (var row in data) {
             element.required = true; //data[row].required;
             element.name = data[row].name;
             element.className = "form-control";
-            element.addEventListener("change", function(){ // check the return value of date_of_birth field to make the parental checkbox visible or not.
+            element.addEventListener("change", function() { // check the return value of date_of_birth field to make the parental checkbox visible or not.
 		 if (data[row]["conditional"]["show_if"](this.value) === true) {
 		 var element = document.getElementsByTagName("input")[6]; 
                  element.style.visibility = "visible"; 
