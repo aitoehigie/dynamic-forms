@@ -17,8 +17,8 @@ Create dynamic web forms from the contents of a JSON object.
 
 Contributors names and contact info
 
-ex. Pascal Ehigie Aito  
-ex. [@pystar](https://twitter.com/pystar)
+Pascal Ehigie Aito  
+[@pystar](https://twitter.com/pystar)
 
 ## Version History
 
