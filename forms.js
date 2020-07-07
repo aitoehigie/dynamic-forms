@@ -39,7 +39,7 @@ var data = [{
 }, {
   "tag": "input",
   "name": "parental_consent",
-  "required": "",
+  "required": "required",
   "type": "checkbox",
   "human_label": "Parental Consent",
 	"conditional": {
@@ -55,7 +55,7 @@ var data = [{
 // Create the form object.
 var form = document.createElement("form");
 form.setAttribute("method","post");
-form.setAttribute("action", " ");
+form.setAttribute("action", "#");
 
 //Create the form fields.
 for (var row in data) {
@@ -109,14 +109,48 @@ for (var row in data) {
     }
 }}
 
-// create a submit button.
-var s = document.createElement("input");
-s.type = "button";
-s.name = "submit";
-s.value = "Submit";
-s.className = "btn btn-primary";
 
-form.appendChild(s);
+
+// create a submit button.
+var submitButton = document.createElement("input");
+submitButton.type = "submit";
+submitButton.name = "submit";
+submitButton.value = "Submit";
+submitButton.className = "btn btn-primary btn-block";
+form.appendChild(submitButton);
+
+
+// Form data serializer
+(function() {
+	function toJSONString(form) {
+		var obj = {};
+		var elements = form.querySelectorAll("input, select, textarea");
+		for( var i = 0; i < elements.length; ++i ) {
+			var element = elements[i];
+			var name = element.name;
+			var value = element.value;
+
+			if( name ) {
+				obj[ name ] = value;
+			}
+		}
+
+		return JSON.stringify( obj );
+	}
+
+	document.addEventListener("DOMContentLoaded", function() {
+		var form = document.getElementsByTagName("form")[0];
+		var output = document.getElementById("output");
+		form.addEventListener("submit", function(e) {
+			e.preventDefault();
+			var json = toJSONString(this);
+			output.innerHTML = json;
+
+		}, false);
+
+	});
+
+})();
 
 document.getElementsByTagName("body")[0].className = "container-sm";
 document.getElementsByTagName("body")[0].appendChild(form);
