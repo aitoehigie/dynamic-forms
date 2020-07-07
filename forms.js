@@ -44,11 +44,12 @@ var data = [{
 }]
 
 
+// Create the form object.
 var form = document.createElement("form");
 form.setAttribute("method","post");
 form.setAttribute("action", " ");
 
-
+//Create the form fields.
 for (var row in data) {
     if ("conditional" in data[row]) {
     var label = document.createElement("label");
@@ -72,7 +73,7 @@ for (var row in data) {
             element.type = data[row].type;
             element.name = data[row].name;
             element.className = "form-control";
-            element.addEventListener("change", function(){
+            element.addEventListener("change", function(){ // check the return value of date_of_birth field to make the parental checkbox visible or not.
 		 if (data[row]["conditional"]["show_if"](this.value) === true) {
 		 var element = document.getElementsByTagName("input")[6]; 
                  element.style.visibility = "visible"; 
@@ -97,6 +98,7 @@ for (var row in data) {
     }
 }}
 
+// create a submit button.
 var s = document.createElement("input");
 s.type = "button";
 s.name = "submit";

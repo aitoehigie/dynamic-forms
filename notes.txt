@@ -1,0 +1,3 @@
+Notes:
+1. I noticed the sample data isnt valid JSON as it is missing a closing tag.
+
