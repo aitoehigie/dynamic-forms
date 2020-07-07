@@ -145,6 +145,18 @@ form.appendChild(submitButton);
 			e.preventDefault();
 			var json = toJSONString(this);
 			output.innerHTML = json;
+			form.onsubmit = async (e) => {
+    				e.preventDefault();
+
+    				let response = await fetch('Server endpoint', { // Server endpoint
+      					method: 'POST',
+      					body: new FormData(form)
+    			});
+
+    		let result = await response.json();
+
+    		alert(result.message);
+  	};
 
 		}, false);
 
