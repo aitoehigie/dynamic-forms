@@ -1,10 +1,10 @@
 # Dynamic web forms
 
-Create dynamic web forms from the contents of a JSON object.
+Create dynamic web forms from the contents of a JSON array of objects.
 
 ## Description
 
-Create dynamic web forms from the contents of a JSON object.
+Create dynamic web forms from the contents of a JSON array of objects.
 
 ## Getting Started
 
