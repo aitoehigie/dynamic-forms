@@ -11,7 +11,7 @@ Create dynamic web forms from the contents of a JSON object.
 ### Installing
 
 * Edit the data section of the forms.js file.
-* Link the forms.js in your html file to display the form.
+* Link the forms.js file in your html file to display the form.
 
 ## Authors
 
