@@ -4,3 +4,5 @@ Notes:
 3. How would you improve upon the design to make it an easier and more beautiful experience for users? 
 	Answer: (1) Instead of editing the forms.js file, I would create a simple form where users could easily enter the fields they want in the forms.
 		(2) I would add more user validation.
+4. How about validation? What happens if a field is empty? How can we dynamically set whether  a field is required or not?
+	Answer: (1) By setting element.required attribute if needed on every element created in the forms.js file.

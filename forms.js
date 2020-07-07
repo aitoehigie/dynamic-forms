@@ -2,37 +2,44 @@
 
 var data = [{
   "tag": "input",
-	"name": "first_name",
+  "name": "first_name",
+  "required": "",
   "type": "text",
 	"human_label": "First Name"
 }, {
   "tag": "input",
   "name": "last_name",
+  "required": "",
   "type": "text",
 	"human_label": "Last Name"
 }, {
   "tag": "input",
   "name": "email",
+  "required": "",
   "type": "email",
   "human_label": "Email Address"
 }, {
   "tag": "input",
   "name": "phone_number",
+  "required": "",
   "type": "text",
   "human_label": "Phone Number"
 }, {
   "tag": "input",
   "name": "job_title",
+  "required": "",
   "type": "text",
   "human_label": "Job Title"
 }, {
   "tag": "input",
   "name": "date_of_birth",
+  "required": "required",
   "type": "date",
   "human_label": "Date of Birth"
 }, {
   "tag": "input",
   "name": "parental_consent",
+  "required": "",
   "type": "checkbox",
   "human_label": "Parental Consent",
 	"conditional": {
@@ -58,6 +65,7 @@ for (var row in data) {
     var element = document.createElement(data[row].tag);
     element.type = data[row].type;
     element.name = data[row].name;
+    element.required = data[row].required;
     element.style.visibility = "hidden";
     element.className = "form-control";
     var br = document.createElement("br");
@@ -71,6 +79,7 @@ for (var row in data) {
             label.innerHTML = data[row].human_label + ": ";
             var element = document.createElement(data[row].tag);
             element.type = data[row].type;
+            element.required = true; //data[row].required;
             element.name = data[row].name;
             element.className = "form-control";
             element.addEventListener("change", function(){ // check the return value of date_of_birth field to make the parental checkbox visible or not.
@@ -90,6 +99,7 @@ for (var row in data) {
             var element = document.createElement(data[row].tag);
             element.type = data[row].type;
             element.name = data[row].name;
+            element.required = data[row].required;
             element.className = "form-control";
             var br = document.createElement("br");
             form.appendChild(label);
